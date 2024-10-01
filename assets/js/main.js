@@ -23,6 +23,7 @@ $(document).ready(function () {
         $("#main-contents1").show();
         $("#highPetArrow").addClass("active");
         $("#goodAndGoodArrow").removeClass("active");
+        $(".menu-button").removeClass("active").first().addClass("active");
     });
     $(`#${goodAndGood}`).click(function () {
         $("#gnb").removeClass(highPet).addClass(goodAndGood);
@@ -32,15 +33,19 @@ $(document).ready(function () {
         $("#main-contents5").show();
         $("#goodAndGoodArrow").addClass("active");
         $("#highPetArrow").removeClass("active");
+        $(".menu-button").removeClass("active").eq(4).addClass("active");
     });
 
     // 하이펫 애견보험 상단 gnb 버튼 이벤트
     $(".menu-button").click(function () {
+        $(".menu-button").removeClass("active");
+        $(this).addClass("active");
         const targetId = $(this).data("target"); // 클릭한 버튼의 타겟 ID를 가져옴
 
         // 모든 섹션을 숨기고 타겟 섹션만 표시
         $(".contents_section").hide();
         $(`#${targetId}`).show();
+        $("html, body").animate({ scrollTop: 0 }, "smooth");
     });
 
     // 스크롤 시 이벤트 처리

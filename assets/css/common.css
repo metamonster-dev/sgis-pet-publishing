@@ -1358,6 +1358,10 @@ footer .footer_bottom span{
 		margin-right: 0;
 	}
 
+	.mar_btm80{
+		margin-bottom: 8rem;
+	}
+
 	.responsive_sction{
 		display: block;
 		padding: 4rem 0 3.2rem;
@@ -1374,6 +1378,9 @@ footer .footer_bottom span{
 		line-height: 5.2rem;
 		color: #003260;
 		font-size: 4rem;
+	}
+	.type_section {
+		background-color: #EAF2FF;
 	}
 
 	.type_section .type_txt .txt strong,
@@ -1428,8 +1435,13 @@ footer .footer_bottom span{
 	.contents_section{
 		padding-bottom: 8rem;
 	}
+	
 	.contents_section.goodAndGood{
 		padding-bottom: 0;
+	}
+
+	.contents_section.pad_btm40 {
+		padding-bottom: 4rem;
 	}
 
 	.product_list li{
@@ -1857,6 +1869,11 @@ footer .footer_bottom span{
 	}
 	.num5_section.fourth{
 		padding: 6rem 0 8rem;
+	}
+
+	.type_section .type_bg .blue,
+	.type_section .type_bg .orange {
+		border-radius: .8rem .8rem 0 0;
 	}
 	
 }
