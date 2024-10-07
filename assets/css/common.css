@@ -402,9 +402,30 @@ label.required:after {
 	height: 8rem;
 }
 
+.top_gnb .main_logo{
+	display: flex;
+}
+
 .top_gnb .main_logo a{
-	display: block;
+	position: relative;
+	display: inline-block;
 	height: 2.8rem;
+}
+
+.top_gnb .main_logo a~a{
+	padding-left: 1.6rem;
+	margin-left: 1.6rem;
+}
+
+.top_gnb .main_logo a~a::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 2px;
+	height: 2.2rem;
+	background-color: #D9D9D9;
 }
 .top_gnb .main_logo a img{
 	height: 100%;
@@ -414,7 +435,7 @@ label.required:after {
 	display: inline-block;
 	padding: 0 1.5rem 0 4rem;
 	height: 4rem;
-	line-height: 4rem;
+	line-height: 3.9rem;
 	border: 2px solid #F18D00;
 	border-radius: .8rem;
 	color: #F18D00;
@@ -1368,6 +1389,13 @@ footer .footer_bottom span{
 		background-color: #EAF2FF;
 		text-align: center;
 	}
+
+	.responsive_sction .res_box{
+		display: none;
+	}
+	.responsive_sction .res_box.active {
+		display: block;
+	}
 	.responsive_sction p{
 		padding-bottom: .8rem;
 		font-size: 2.1rem;
@@ -1921,12 +1949,24 @@ footer .footer_bottom span{
 		height: 6rem;
 	}
 	.top_gnb .main_logo a{
-		height: 2.2rem;
+		height: 2rem;
 	}
+	.top_gnb .main_logo a~a {
+		padding-left: .8rem;
+		margin-left: .8rem;
+	}
+
+	.top_gnb .main_logo a~a::before {
+		width: 1px;
+		height: 2rem;
+	}
+
 	.top_gnb .terms{
 		padding: 0 1.2rem 0 3.2rem;
 		font-size: 1.4rem;
 		background-position: center left 1.2rem;
+		height: 3.2rem;
+		line-height: 3.1rem;
 	}
 	footer .footer_top p {
 		line-height: 2.25rem;
