@@ -263,7 +263,7 @@ select::-ms-expand {
 
 textarea[readonly] {
 	padding: 1.6rem;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: #555555;
 	font-weight: 500;
 	line-height: 150%;
@@ -311,7 +311,7 @@ label.required:after {
 }
 
 .ch_check+.label {
-	background: url('../images/icons/checkbox_off.png') no-repeat left top / 2rem;
+	background: url('../images/icons/checkbox_off.png') no-repeat left top 0.3rem / 2rem;
 }
 
 .ch_check:checked+.label {
@@ -431,7 +431,22 @@ label.required:after {
 	height: 100%;
 }
 
-.top_gnb .terms{
+.top_gnb .logo_tel_wrap {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.top_gnb .tels {
+	display: flex;
+	gap: 15px;
+}
+.top_gnb .tels a {
+	display: inline-block;
+	font-size: 15px;
+	color: #777;
+}
+
+.top_gnb .terms1{
 	display: inline-block;
 	padding: 0 1.5rem 0 4rem;
 	height: 4rem;
@@ -440,6 +455,21 @@ label.required:after {
 	border-radius: .8rem;
 	color: #F18D00;
 	background: url('../images/icons/download_orange.png') no-repeat center left 1.6rem / 1.6rem;
+}
+
+.top_gnb .terms2{
+	display: inline-block;
+	padding: 0 1.5rem 0 4rem;
+	height: 4rem;
+	line-height: 3.9rem;
+	border: 2px solid #F18D00;
+	border-radius: .8rem;
+	color: #F18D00;
+	background: url('../images/icons/download_orange.png') no-repeat center left 1.6rem / 1.6rem;
+}
+
+.top_gnb .terms_hide {
+	display: none;
 }
 
 .type_section {
@@ -1383,6 +1413,18 @@ footer .footer_bottom span{
 		margin-bottom: 8rem;
 	}
 
+	.top_gnb .logo_tel_wrap {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 5px;
+	}
+	.top_gnb .tels {
+		gap: 15px;
+	}
+	.top_gnb .tels a {
+		font-size: 13px;
+	}
+
 	.responsive_sction{
 		display: block;
 		padding: 4rem 0 3.2rem;
@@ -1961,13 +2003,21 @@ footer .footer_bottom span{
 		height: 2rem;
 	}
 
-	.top_gnb .terms{
+	.top_gnb .terms1{
 		padding: 0 1.2rem 0 3.2rem;
 		font-size: 1.4rem;
 		background-position: center left 1.2rem;
 		height: 3.2rem;
 		line-height: 3.1rem;
 	}
+	.top_gnb .terms2{
+		padding: 0 1.2rem 0 3.2rem;
+		font-size: 1.4rem;
+		background-position: center left 1.2rem;
+		height: 3.2rem;
+		line-height: 3.1rem;
+	}
+
 	footer .footer_top p {
 		line-height: 2.25rem;
 	}

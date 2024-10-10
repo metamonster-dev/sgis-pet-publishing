@@ -13,26 +13,40 @@
         <div id="wrap">
             <header>
                 <div class="top_gnb guide">
-                    <h1 class="main_logo">
-                        <a href="#none">
-                            <img
-                                src="../assets/images/logo.png"
-                                alt="현대해상 로고"
-                            />
-                        </a>
-                        <a href="#none">
-                            <img
-                                src="../assets/images/logo02.png"
-                                alt="MIRAION 로고"
-                            />
-                        </a>
-                    </h1>
+                    <div class="logo_tel_wrap">
+                        <h1 class="main_logo">
+                            <a href="#none">
+                                <img
+                                    src="../assets/images/logo.png"
+                                    alt="현대해상 로고"
+                                />
+                            </a>
+                            <a href="#none">
+                                <img
+                                    src="../assets/images/logo02.png"
+                                    alt="MIRAION 로고"
+                                />
+                            </a>
+                        </h1>
+                        <div class="tels">
+                            <a href="tel:1588-3951">1588-3951</a>
+                            <a href="tel:010-8188-3951">010-8188-3951</a>
+                        </div>
+                    </div>
+                    <!--하이펫 애견보험-->
                     <a
-                        href="../assets/pdf/하이펫애견보험_보험약관.pdf"
-                        class="terms"
+                        href="../assets/pdf/하이펫애견보험 약관_20240501.pdf"
+                        class="terms1"
                         download
                         >보험약관</a
                     >
+                    <!--굿앤굿 우리펫보험-->
+                    <a
+                    href="../assets/pdf/굿앤굿우리펫보험(HI2404) 약관.pdf"
+                    class="terms2 terms_hide"
+                    download
+                    >보험약관</a
+                >
                 </div>
 
                 <div class="responsive_sction">
@@ -550,9 +564,12 @@
                                 ></span
                             >
                             <div class="btn_center">
-                                <a href="#none" class="orange_btn" download
-                                    >보험금 청구서 다운받기</a
-                                >
+                                <a
+                                href="../assets/pdf/[현대해상] 펫보험 청구서류 안내_.pdf"
+                                class="orange_btn"
+                                download
+                                >보험금 청구서 다운받기</a
+                            >
                             </div>
                         </div>
                     </div>
@@ -920,7 +937,7 @@
                     <div class="consult_section">
                         <div class="input_section">
                             <div class="input_box">
-                                <label class="required" for="">이름</label>
+                                <label class="required" for="">애견명</label>
                                 <input
                                     type="text"
                                     placeholder="이름을 입력해 주세요"
@@ -929,7 +946,12 @@
                                 />
                             </div>
                             <div class="input_box">
-                                <label class="required" for="">성별</label>
+                                <label class="required" for="">견종</label>
+                                <!-- 이거는 select 스타일이 안잡혀 있고 디자인도 없고 디자인 부터 해야돼요 -->
+                                <!-- <select name="" id="">
+                                    <option value="">남자</option>
+                                    <option value="">여자</option>
+                                </select> -->
 
                                 <div class="mar_top12">
                                     <input
@@ -956,7 +978,7 @@
                                 </div>
                             </div>
                             <div class="input_box">
-                                <label class="required" for="">생년월일</label>
+                                <label class="required" for="">애견 생년월일</label>
                                 <input
                                     type="number"
                                     placeholder="생년월일을 입력해 주세요."
@@ -966,7 +988,7 @@
                             </div>
                             <div class="input_box">
                                 <label class="required" for=""
-                                    >휴대전화 번호</label
+                                    >보호자 휴대전화 번호</label
                                 >
                                 <input
                                     type="number"
@@ -983,16 +1005,18 @@
                                     class="w_100 mar_top12 re_none"
                                     readonly
                                 >
-    가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
-    ㅁ 수집,이용에 관한 사항
-    수집목적: 상품,서비스소개,홍보및판매
-    보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
-    거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실
-    가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
-    ㅁ 수집,이용에 관한 사항
-    수집목적: 상품,서비스소개,홍보및판매
-    보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
-    거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실</textarea
+가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
+
+ㅁ 수집,이용에 관한 사항
+수집목적: 상품,서비스소개,홍보및판매
+보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
+거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실 경우 "가입상담 등"의 혜택을 받지 못할 수 있습니다.
+                                
+ㅁ 수집,이용항목
+개인(신용)정보: 일반개인정보(성명,성별,생년월일,휴대전화번호 신청정보에 한함) * 본 동의는 당사와 모집위탁계약을 체결한 업무수탁자가 수집·이용하는 것을 포함하며, 동의하시는 경우 임직원 또는 업무수탁자가 안내연락을 드릴 수 있습니다.
+※ 업무수탁자란 현대해상 전속 또는 비전속 보험설계사 및 동 계약을 모집한 보험대리점
+                                
+본 동의는 보험계약 상담을위한 필수동의 입니다. 동의하시더라도 담당자(010-8188-3951)를 통해 철회하거나 가입 권유 목적의 연락에 대한 중단을 요청하실 수 있으며 연락중지청구시스템(www.donotcall.or.kr)를 통해 언제든지 마케팅활동에 대한 중지를 요청하실 수 있습니다. 동의하시는 경우 현대해상 펫보험 상품의 안내 및 판매권유 등의 목적으로 개인정보를 이용하여 연락을 드릴 수 있습니다.</textarea
                                 >
                                 <div class="mar_top12">
                                     <input
@@ -1890,7 +1914,7 @@
                             >
                             <div class="btn_center">
                                 <a
-                                    href="../assets/pdf/하이펫애견보험_청구서.pdf"
+                                    href="../assets/pdf/[현대해상] 펫보험 청구서류 안내_.pdf"
                                     class="orange_btn"
                                     download
                                     >보험금 청구서 다운받기</a
@@ -2262,7 +2286,7 @@
                     <div class="consult_section">
                         <div class="input_section">
                             <div class="input_box">
-                                <label class="required" for="">이름</label>
+                                <label class="required" for="">애견명</label>
                                 <input
                                     type="text"
                                     placeholder="이름을 입력해 주세요"
@@ -2271,7 +2295,7 @@
                                 />
                             </div>
                             <div class="input_box">
-                                <label class="required" for="">성별</label>
+                                <label class="required" for="">견종</label>
 
                                 <div class="mar_top12">
                                     <input
@@ -2298,7 +2322,7 @@
                                 </div>
                             </div>
                             <div class="input_box">
-                                <label class="required" for="">생년월일</label>
+                                <label class="required" for="">애견 생년월일</label>
                                 <input
                                     type="number"
                                     placeholder="생년월일을 입력해 주세요."
@@ -2308,7 +2332,7 @@
                             </div>
                             <div class="input_box">
                                 <label class="required" for=""
-                                    >휴대전화 번호</label
+                                    >보호자 휴대전화 번호</label
                                 >
                                 <input
                                     type="number"
@@ -2325,16 +2349,18 @@
                                     class="w_100 mar_top12 re_none"
                                     readonly
                                 >
-    가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
-    ㅁ 수집,이용에 관한 사항
-    수집목적: 상품,서비스소개,홍보및판매
-    보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
-    거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실
-    가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
-    ㅁ 수집,이용에 관한 사항
-    수집목적: 상품,서비스소개,홍보및판매
-    보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
-    거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실</textarea
+가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
+
+ㅁ 수집,이용에 관한 사항
+수집목적: 상품,서비스소개,홍보및판매
+보유 및 이용기간: 동의일로부터 1년 또는 동의 철회 시까지
+거부 권리 및 불이익: 귀하는 아래 개인(신용)정보 수집·이용에 관한 동의를 거부하실 수 있습니다. 다만, 동의하지 않으실 경우 "가입상담 등"의 혜택을 받지 못할 수 있습니다.
+                                                                
+ㅁ 수집,이용항목
+개인(신용)정보: 일반개인정보(성명,성별,생년월일,휴대전화번호 신청정보에 한함) * 본 동의는 당사와 모집위탁계약을 체결한 업무수탁자가 수집·이용하는 것을 포함하며, 동의하시는 경우 임직원 또는 업무수탁자가 안내연락을 드릴 수 있습니다.
+※ 업무수탁자란 현대해상 전속 또는 비전속 보험설계사 및 동 계약을 모집한 보험대리점
+                                                                
+본 동의는 보험계약 상담을위한 필수동의 입니다. 동의하시더라도 담당자(010-8188-3951)를 통해 철회하거나 가입 권유 목적의 연락에 대한 중단을 요청하실 수 있으며 연락중지청구시스템(www.donotcall.or.kr)를 통해 언제든지 마케팅활동에 대한 중지를 요청하실 수 있습니다. 동의하시는 경우 현대해상 펫보험 상품의 안내 및 판매권유 등의 목적으로 개인정보를 이용하여 연락을 드릴 수 있습니다.</textarea
                                 >
                                 <div class="mar_top12">
                                     <input

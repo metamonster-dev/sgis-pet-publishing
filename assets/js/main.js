@@ -25,6 +25,8 @@ $(document).ready(function () {
         $("#goodAndGoodArrow").removeClass("active");
         $(".menu-button").removeClass("active").first().addClass("active");
         $(".res_box").removeClass("active").first().addClass("active");
+        $(".top_gnb .terms1").removeClass("terms_hide");
+        $(".top_gnb .terms2").addClass("terms_hide");
     });
     $(`#${goodAndGood}`).click(function () {
         $("#gnb").removeClass(highPet).addClass(goodAndGood);
@@ -36,6 +38,8 @@ $(document).ready(function () {
         $("#highPetArrow").removeClass("active");
         $(".menu-button").removeClass("active").eq(4).addClass("active");
         $(".res_box").removeClass("active").eq(1).addClass("active");
+        $(".top_gnb .terms1").addClass("terms_hide");
+        $(".top_gnb .terms2").removeClass("terms_hide");
     });
 
     // 하이펫 애견보험 상단 gnb 버튼 이벤트
