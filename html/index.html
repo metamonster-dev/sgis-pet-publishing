@@ -800,7 +800,7 @@
             <!-- 하이펫 애견보험 - 유의사항 - end -->
 
             <!-- 하이펫 애견보험 - 상담신청 -->
-            <main id="main-contents4" class="contents_section guide highPet pad_btm40">
+            <main id="main-contents4" class="contents_section guide highPet pad_btm40 form-highpet">
                 <div class="consult_section">
                     <div class="input_section">
                         <div class="input_box">
@@ -832,11 +832,12 @@
                         </div>
                         <div class="input_box">
                             <label class="required" for="">애견 생년월일</label>
-                            <input type="number" placeholder="생년월일을 입력해 주세요." class="w_100 mar_top12" required />
+                            <input type="number" placeholder="생년월일을 입력해 주세요." class="w_100 mar_top12" required
+                                maxlength="8" />
                         </div>
                         <div class="input_box">
                             <label class="required" for="">보호자 휴대전화 번호</label>
-                            <input type="number" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
+                            <input type="text" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
                         </div>
                         <div class="input_box">
                             <label class="required" for="">개인정보 수집, 이용에 관한 동의</label>
@@ -1887,7 +1888,7 @@
             <!-- 굿앤굿 애견보험 - 유의사항 - end -->
 
             <!-- 굿앤굿 애견보험 - 상담신청 -->
-            <main id="main-contents8" class="contents_section guide goodAndGood pad_btm40">
+            <main id="main-contents8" class="contents_section guide goodAndGood pad_btm40 form-goodandgood">
                 <div class="consult_section">
                     <div class="input_section">
                         <div class="input_box">
@@ -1919,11 +1920,12 @@
                         </div>
                         <div class="input_box">
                             <label class="required" for="">애견 생년월일</label>
-                            <input type="number" placeholder="생년월일을 입력해 주세요." class="w_100 mar_top12" required />
+                            <input type="number" placeholder="생년월일을 입력해 주세요." class="w_100 mar_top12" required
+                                maxlength="8" />
                         </div>
                         <div class="input_box">
                             <label class="required" for="">보호자 휴대전화 번호</label>
-                            <input type="number" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
+                            <input type="text" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
                         </div>
                         <div class="input_box">
                             <label class="required" for="">개인정보 수집, 이용에 관한 동의</label>
@@ -2045,45 +2047,104 @@
         $('.orange_btn.w_100.mar_top20').click(function (e) {
             e.preventDefault(); // 폼의 기본 제출 동작 막기
 
-            // 입력된 값 가져오기
-            const dogName = $('input[placeholder="이름을 입력해 주세요"]').val();
-            const breed = $('input[name="genders"]:checked').val(); // 선택된 견종
-            const birthDate = $('input[placeholder="생년월일을 입력해 주세요."]').val();
-            const phone = $('input[placeholder="휴대전화 번호를 입력해 주세요."]').val();
-            const agree = $('#agree2').is(':checked'); // 동의 여부 확인
-            console.log('dog', dogName);
+            // 어느 폼에서 버튼을 눌렀는지 확인
+            let formType;
+            if ($(this).closest('main').hasClass('form-highpet')) {
+                formType = 'highpet';
+            } else if ($(this).closest('main').hasClass('form-goodandgood')) {
+                formType = 'goodandgood';
+            }
+
+            // 각 폼의 입력된 값 가져오기
+            const form = $(this).closest('.input_section'); // 현재 폼 섹션만 선택
+            const dogName = form.find('input[placeholder="이름을 입력해 주세요"]').val();
+            const breed1Text = form.find('#breed_1 button').first().text().trim(); // breed_1의 버튼 텍스트 값 가져오기
+            const breed2Text = form.find('#breed_2 button').first().text().trim(); // breed_2의 버튼 텍스트 값 가져오기
+            const combinedBreed = `${breed1Text}/${breed2Text}`; // 두 값을 합쳐 /로 구분
+            const birthDate = form.find('input[placeholder="생년월일을 입력해 주세요."]').val();
+            const phone = form.find('input[placeholder="휴대전화 번호를 입력해 주세요."]').val();
+
+            // 동의 여부 확인 (폼에 따라 분기 처리)
+            let agree;
+            if (formType === 'highpet') {
+                agree = form.find('#agree').is(':checked');
+            } else if (formType === 'goodandgood') {
+                agree = form.find('#agree2').is(':checked');
+            }
+
             // 유효성 검사
-            if (!dogName || !breed || !birthDate || !phone || !agree) {
+            if (!dogName || !combinedBreed || !birthDate || !phone || !agree) {
                 alert('모든 필수 입력 사항을 작성하고, 동의해야 합니다.');
+                return;
+            }
+
+            // 생년월일 8자리 유효성 검사 (예: YYYYMMDD 형식)
+            const birthDatePattern = /^\d{8}$/;
+            if (!birthDatePattern.test(birthDate)) {
+                alert('생년월일은 YYYYMMDD 형식으로 8자리 숫자로 입력해 주세요.');
+                return;
+            }
+
+            // 휴대폰 번호 유효성 검사 (010-0000-0000 형식)
+            const phonePattern = /^010-\d{4}-\d{4}$/;
+            if (!phonePattern.test(phone)) {
+                alert('휴대전화 번호는 010-0000-0000 형식으로 입력해 주세요.');
                 return;
             }
 
             // 상담 데이터 생성
             const consultationData = {
                 dogName: dogName,
-                breed: breed,
-                birthDate: birthDate,
-                phone: phone,
-                agree: agree
+                dogBreed: combinedBreed,
+                dogBirthDate: birthDate,
+                guardianPhone: phone,
+                type: formType === 'highpet' ? "HI_PET" : 'GOOG_AND_GOOD',
             };
 
             // AJAX를 통해 서버로 데이터 전송
             $.ajax({
-                url: 'https://your-server-endpoint.com/consultation', // 서버 API 엔드포인트
+                url: 'http://15.165.226.147:8086/api/users/insurance-claim-pet', // 서버 API 엔드포인트
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(consultationData),
                 success: function (response) {
                     // 성공적으로 데이터 전송 후 처리
                     alert('상담 신청이 완료되었습니다.');
+                    // 페이지 상단으로 스크롤
+                    scrollToTopAndReload();
                 },
                 error: function (error) {
                     // 에러 발생 시 처리
                     console.error('Error:', error);
+                    // 페이지 상단으로 스크롤
                     alert('상담 신청 중 오류가 발생했습니다.');
+
+                    scrollToTopAndReload();
                 }
             });
+
+            // 휴대전화 번호 입력 이벤트 리스너
+            $('input[placeholder="휴대전화 번호를 입력해 주세요."]').on('input', function () {
+                let value = $(this).val().replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+
+                if (value.length >= 4 && value.length <= 7) {
+                    value = value.replace(/(\d{3})(\d{1,4})/, '010-$2');
+                } else if (value.length >= 8) {
+                    value = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '010-$2-$3');
+                }
+
+                $(this).val(value);
+            });
         });
+
+        function scrollToTopAndReload() {
+            $('html, body').animate({ scrollTop: 0 }, 500, function () {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            });
+        }
     });
 </script>
+
 </html>
