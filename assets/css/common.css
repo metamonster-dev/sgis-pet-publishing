@@ -2102,3 +2102,20 @@ footer .footer_bottom span {
     display: block;
   }
 }
+
+#consultationTime {
+  padding: 0rem 1.6rem;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1.5rem;
+  color: #1d1d1d;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-radius: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

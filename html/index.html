@@ -842,6 +842,17 @@
                             <input type="text" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
                         </div>
                         <div class="input_box">
+                            <label class="required" for="consultationTime">상담 시간 선택</label>
+                            <div class="select mar_top12">
+                                <select id="consultationTime" class="w_100 mar_top12" required>
+                                    <option value="">시간을 선택해 주세요</option>
+                                    <option value="09:00~11:00">09:00~11:00</option>
+                                    <option value="13:00~15:00">13:00~15:00</option>
+                                    <option value="15:00~17:00">15:00~17:00</option>
+                                </select>
+                            </div>
+                        </div>                        
+                        <div class="input_box">
                             <label class="required" for="">개인정보 수집, 이용에 관한 동의</label>
                             <textarea class="w_100 mar_top12 re_none" readonly>
 가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
@@ -1942,6 +1953,17 @@
                             <input type="text" placeholder="휴대전화 번호를 입력해 주세요." class="w_100 mar_top12" required />
                         </div>
                         <div class="input_box">
+                            <label class="required" for="consultationTime">상담 시간 선택</label>
+                            <div class="select mar_top12">
+                                <select id="consultationTime" class="w_100 mar_top12" required>
+                                    <option value="">시간을 선택해 주세요</option>
+                                    <option value="09:00~11:00">09:00~11:00</option>
+                                    <option value="13:00~15:00">13:00~15:00</option>
+                                    <option value="15:00~17:00">15:00~17:00</option>
+                                </select>
+                            </div>
+                        </div>                        
+                        <div class="input_box">
                             <label class="required" for="">개인정보 수집, 이용에 관한 동의</label>
                             <textarea class="w_100 mar_top12 re_none" readonly>
 가입상담문의 응대를 위한 개인(신용)정보 처리 상세 동의서
@@ -2081,7 +2103,8 @@
             const combinedBreed = `${breed1Text}/${breed2Text}`; // 두 값을 합쳐 /로 구분
             const birthDate = form.find('input[placeholder="생년월일을 입력해 주세요."]').val();
             const phone = form.find('input[placeholder="휴대전화 번호를 입력해 주세요."]').val();
-
+            const consultationTime = form.find('#consultationTime').val();
+            
             // 동의 여부 확인 (폼에 따라 분기 처리)
             let agree;
             if (formType === 'highpet') {
@@ -2091,7 +2114,7 @@
             }
 
             // 유효성 검사
-            if (!dogName || !combinedBreed || !birthDate || !phone || !agree) {
+            if (!dogName || !combinedBreed || !birthDate || !phone || !agree || !consultationTime) {
                 alert('모든 필수 입력 사항을 작성하고, 동의해야 합니다.');
                 return;
             }
@@ -2110,6 +2133,11 @@
                 return;
             }
 
+            if (!consultationTime) {
+                alert('상담 시간을 선택해 주세요.');
+                return;
+            }
+
             // 상담 데이터 생성
             const consultationData = {
                 dogName: dogName,
@@ -2117,11 +2145,12 @@
                 dogBirthDate: birthDate,
                 guardianPhone: phone,
                 type: formType === 'highpet' ? "HI_PET" : 'GOOG_AND_GOOD',
+                consultationTime: form.find('#consultationTime').val()
             };
 
             // AJAX를 통해 서버로 데이터 전송
             $.ajax({
-                url: 'http://15.165.226.147:8086/api/users/insurance-claim-pet', // 서버 API 엔드포인트
+                url: 'https://admin.simon-global.co.kr/api/users/insurance-claim-pet', // 서버 API 엔드포인트
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(consultationData),
